@@ -17,22 +17,13 @@ npm install mapz
 ```javascript
 var mapz = require('mapz');
 
-// Create.
 var map = mapz(fn, {key: 'children', gapless: true});
 
-// Run.
-var res = map({children: [1, 2, 3]});
-console.log(res);
+map({children: [1, 2, 3]}); //=> ['Hi, 2', 'Hi, 3']
 
 function fn(value) {
   return value > 1 ? 'Hi, ' + value + '.' : null;
 }
-```
-
-Yields:
-
-```javascript
-['Hi, 2', 'Hi, 3']
 ```
 
 ## API
