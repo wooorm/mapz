@@ -1,20 +1,8 @@
-/**
- * @author Titus Wormer
- * @copyright 2016 Titus Wormer
- * @license MIT
- * @module mapz
- * @fileoverview Test suite for `mapz`.
- */
-
 'use strict';
 
-/* eslint-env node */
-
-/* Dependencies. */
 var test = require('tape');
 var mapz = require('./');
 
-/* Tests. */
 test('mapz(options?)', function (t) {
   t.deepEqual(
     mapz(fn)([1, 2, 3]),

@@ -1,14 +1,4 @@
-/**
- * @author Titus Wormer
- * @copyright 2016 Titus Wormer
- * @license MIT
- * @module mapz
- * @fileoverview Functional map with sugar.
- */
-
 'use strict';
-
-/* eslint-env commonjs */
 
 /* Dependencies. */
 var array = require('x-is-array');
@@ -17,13 +7,7 @@ var string = require('x-is-string');
 /* Expose. */
 module.exports = factory;
 
-/**
- * Functional map with sugar.
- *
- * @param {Function} fn - Handle one value.
- * @param {Object?|string} [options] - Configuration.
- * @return {Function} - Hande values.
- */
+/* Functional map with sugar. */
 function factory(fn, options) {
   var settings = options || {};
   var key = settings.key;
