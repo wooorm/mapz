@@ -1,12 +1,10 @@
 # mapz [![Build Status][travis-badge]][travis] [![Coverage Status][codecov-badge]][codecov]
 
-<!--lint disable heading-increment no-duplicate-headings-->
-
 Functional map with sugar.
 
 ## Installation
 
-[npm][npm-install]:
+[npm][]:
 
 ```bash
 npm install mapz
@@ -80,6 +78,11 @@ passed.  If `key` is set and an array is given, no `parent` is passed.
 
 `*` — Any value.
 
+## Related
+
+*   [`zwitch`](https://github.com/wooorm/zwitch)
+    — Handle values based on a property
+
 ## License
 
 [MIT][license] © [Titus Wormer][author]
@@ -94,7 +97,7 @@ passed.  If `key` is set and an array is given, no `parent` is passed.
 
 [codecov]: https://codecov.io/github/wooorm/mapz
 
-[npm-install]: https://docs.npmjs.com/cli/install
+[npm]: https://docs.npmjs.com/cli/install
 
 [license]: LICENSE
 
