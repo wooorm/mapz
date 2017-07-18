@@ -18,8 +18,7 @@
     "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)"
   ],
   "dependencies": {
-    "x-is-array": "^0.1.0",
-    "x-is-string": "^0.1.0"
+    "x-is-array": "^0.1.0"
   },
   "devDependencies": {
     "browserify": "^14.1.0",

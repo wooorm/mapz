@@ -1,10 +1,7 @@
 'use strict';
 
-/* Dependencies. */
 var array = require('x-is-array');
-var string = require('x-is-string');
 
-/* Expose. */
 module.exports = factory;
 
 /* Functional map with sugar. */
@@ -14,7 +11,7 @@ function factory(fn, options) {
   var indices = settings.indices;
   var gapless = settings.gapless;
 
-  if (string(settings)) {
+  if (typeof settings === 'string') {
     key = settings;
   }
 
