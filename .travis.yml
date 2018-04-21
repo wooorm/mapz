@@ -4,19 +4,12 @@ node_js:
 - '8.0'
 after_success: bash <(curl -s https://codecov.io/bash)
 deploy:
-  - provider: npm
-    email: tituswormer@gmail.com
-    api_key:
-      secure: UKt7jhSP8SHZ2nrtp5+kibRd0JTkR3e54Dx06MyoyGyj68H1mYqufqc3X5c5JvvicjcvsJJ3s9Q7aJKJeI/3EH1kpmu7aPUsh6L9hoWT9RKnJ47BL/PMDHojH7IqhwzpMOF8D0xPSHCZ0UgaqYGUGAllnj46fvzN4/iV7pR5hKbB0wIoCzWUMJ/vfyWXiYsISWl3JHR85EVNajnDhNis/SFgF/Evv8vAb50xr/e7tD9UCI955btQMqba+Q6bVKffuhHXznAGoHOCI0S6cxUGTt6mNAiNMyR86+Cc31yx+0lRT0oUkhURwVw9gy21Sx2QXgAr14Q9vDx7/WIHreyfYm60ivrrVvAKai1EudvaLWLoEMKV+LpH2XHeg3kULcrx+xDtAX6yKXlR16DBolXppUuArlencwIzPuLNrZFZWYRzGZLC6Pn+Kq/eeio++34teBiIBzy54w8G5rK//2AkwouAw+WfjyfOSiVoLI0SnpDnetCdIa4S/2FrlW2/w/nAlbr5scRAgHqM3psBGEKNJkbmHgLqN04upuZut/59vP/rQCPr3EASsHQCG3aODhqGnzKPdDqwxBsCPfMXHD7jxN8m7kEE6NSRwayfqGBw1gVj37Vtk3RhV9eeSmtcBwqCEcHYsXxCzBhXpp7PD7s2G/pHeG/JqnnkyBw9xLvQjs8=
-    on:
-      tags: true
-      node: '4.0'
-  - provider: releases
-    api_key:
-      secure: YrHPyPacsJ2fdge8yYtIFp/KTQ6tjKYpww4fbrOFS29WBLY6Ecs+Ntf6tQjjQQhiVgRI69FEeqwFkExQs+ozbExNKrjQQYKgIZBojeWfakEkDhAiG7eG8Owy6gwXSSLRhrsI5zVceNxmk5frA+0vUadGRPf/6Q4RG10E8zapwJIMf9a0jpSYgUpyDAreoDpZrm9Fr32ycUVhCbMik98HCqbWKw9yIrJqTFsmPcz3y+2fjCtHG8r85LH22oKbPPOaG8k3R0ZN96VIfH1s/D/vvB1HWG2EKUpkakOMKVuTLMwmKgPHeEbB2K9nKxSGx9eGK5pc9RyHTaH/4s0OsaD2nmFWLpqEDk0r+3d+xlyrETgVFz4+jr/S/o4KdXFiGwU6ydlmSe9GF2nDVXQjQs/PTxzszBfXayxvgM1R+1/aVU1PnStV2AIliv4ZEkVbTmCpFoFgXsFgdahLDWf73SkuihVbIF2+c7tool0kuCx4OmAv5JIor5cPylhDW6KW5DCz1TpLtoygpYdfuFjnwQP9FIdr6qJYyW/PaRvcXUFq/EIxEFwvWeSy5FnIS+QPD63akU7pa8OL4+Vsgx/Gd9iZrYlPuDYfAhmjrvhlT/4l0BwGdvD4aRdTqF5NKP9b9QwjQDMeghbIDRWqUwZrutoHUST+Y8PmiCwp7/eQUhQRE+o=
-    file:
-      - "mapz.js"
-      - "mapz.min.js"
-    on:
-      tags: true
-      node: '8.0'
+  provider: releases
+  api_key:
+    secure: YrHPyPacsJ2fdge8yYtIFp/KTQ6tjKYpww4fbrOFS29WBLY6Ecs+Ntf6tQjjQQhiVgRI69FEeqwFkExQs+ozbExNKrjQQYKgIZBojeWfakEkDhAiG7eG8Owy6gwXSSLRhrsI5zVceNxmk5frA+0vUadGRPf/6Q4RG10E8zapwJIMf9a0jpSYgUpyDAreoDpZrm9Fr32ycUVhCbMik98HCqbWKw9yIrJqTFsmPcz3y+2fjCtHG8r85LH22oKbPPOaG8k3R0ZN96VIfH1s/D/vvB1HWG2EKUpkakOMKVuTLMwmKgPHeEbB2K9nKxSGx9eGK5pc9RyHTaH/4s0OsaD2nmFWLpqEDk0r+3d+xlyrETgVFz4+jr/S/o4KdXFiGwU6ydlmSe9GF2nDVXQjQs/PTxzszBfXayxvgM1R+1/aVU1PnStV2AIliv4ZEkVbTmCpFoFgXsFgdahLDWf73SkuihVbIF2+c7tool0kuCx4OmAv5JIor5cPylhDW6KW5DCz1TpLtoygpYdfuFjnwQP9FIdr6qJYyW/PaRvcXUFq/EIxEFwvWeSy5FnIS+QPD63akU7pa8OL4+Vsgx/Gd9iZrYlPuDYfAhmjrvhlT/4l0BwGdvD4aRdTqF5NKP9b9QwjQDMeghbIDRWqUwZrutoHUST+Y8PmiCwp7/eQUhQRE+o=
+  file:
+    - "mapz.js"
+    - "mapz.min.js"
+  on:
+    tags: true
+    node: '8.0'
