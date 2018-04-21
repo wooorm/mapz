@@ -1,7 +1,7 @@
 'use strict';
 
 var test = require('tape');
-var mapz = require('./');
+var mapz = require('.');
 
 test('mapz(options?)', function (t) {
   t.deepEqual(
