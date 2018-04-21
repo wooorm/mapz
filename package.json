@@ -11,7 +11,7 @@
   "files": [
     "index.js"
   ],
-  "repository": "https://github.com/wooorm/mapz",
+  "repository": "wooorm/mapz",
   "bugs": "https://github.com/wooorm/mapz/issues",
   "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
   "contributors": [
