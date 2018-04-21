@@ -13,14 +13,14 @@ npm install mapz
 ## Usage
 
 ```javascript
-var mapz = require('mapz');
+var mapz = require('mapz')
 
-var map = mapz(fn, {key: 'children', gapless: true});
+var map = mapz(fn, {key: 'children', gapless: true})
 
-map({children: [1, 2, 3]}); //=> ['Hi, 2', 'Hi, 3']
+map({children: [1, 2, 3]}) // => ['Hi, 2', 'Hi, 3']
 
 function fn(value) {
-  return value > 1 ? 'Hi, ' + value + '.' : null;
+  return value > 1 ? 'Hi, ' + value + '.' : null
 }
 ```
 
