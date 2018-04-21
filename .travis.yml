@@ -1,10 +1,11 @@
 language: node_js
 node_js:
-- '4.0'
-- '8.0'
+- lts/boron
+- node
 after_success: bash <(curl -s https://codecov.io/bash)
 deploy:
   provider: releases
+  skip_cleanup: true
   api_key:
     secure: YrHPyPacsJ2fdge8yYtIFp/KTQ6tjKYpww4fbrOFS29WBLY6Ecs+Ntf6tQjjQQhiVgRI69FEeqwFkExQs+ozbExNKrjQQYKgIZBojeWfakEkDhAiG7eG8Owy6gwXSSLRhrsI5zVceNxmk5frA+0vUadGRPf/6Q4RG10E8zapwJIMf9a0jpSYgUpyDAreoDpZrm9Fr32ycUVhCbMik98HCqbWKw9yIrJqTFsmPcz3y+2fjCtHG8r85LH22oKbPPOaG8k3R0ZN96VIfH1s/D/vvB1HWG2EKUpkakOMKVuTLMwmKgPHeEbB2K9nKxSGx9eGK5pc9RyHTaH/4s0OsaD2nmFWLpqEDk0r+3d+xlyrETgVFz4+jr/S/o4KdXFiGwU6ydlmSe9GF2nDVXQjQs/PTxzszBfXayxvgM1R+1/aVU1PnStV2AIliv4ZEkVbTmCpFoFgXsFgdahLDWf73SkuihVbIF2+c7tool0kuCx4OmAv5JIor5cPylhDW6KW5DCz1TpLtoygpYdfuFjnwQP9FIdr6qJYyW/PaRvcXUFq/EIxEFwvWeSy5FnIS+QPD63akU7pa8OL4+Vsgx/Gd9iZrYlPuDYfAhmjrvhlT/4l0BwGdvD4aRdTqF5NKP9b9QwjQDMeghbIDRWqUwZrutoHUST+Y8PmiCwp7/eQUhQRE+o=
   file:
@@ -12,4 +13,3 @@ deploy:
     - "mapz.min.js"
   on:
     tags: true
-    node: '8.0'
