@@ -101,7 +101,7 @@ passed.  If `key` is set and an array is given, no `parent` is passed.
 
 [license]: license
 
-[author]: http://wooorm.com
+[author]: https://wooorm.com
 
 [map]: #mapvalues
 
