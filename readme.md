@@ -1,4 +1,9 @@
-# mapz [![Build Status][travis-badge]][travis] [![Coverage Status][codecov-badge]][codecov]
+# mapz
+
+[![Build][build-badge]][build]
+[![Coverage][coverage-badge]][coverage]
+[![Downloads][downloads-badge]][downloads]
+[![Size][size-badge]][size]
 
 Functional map with sugar.
 
@@ -89,13 +94,21 @@ passed.  If `key` is set and an array is given, no `parent` is passed.
 
 <!-- Definitions -->
 
-[travis-badge]: https://img.shields.io/travis/wooorm/mapz.svg
+[build-badge]: https://img.shields.io/travis/wooorm/mapz.svg
 
-[travis]: https://travis-ci.org/wooorm/mapz
+[build]: https://travis-ci.org/wooorm/mapz
 
-[codecov-badge]: https://img.shields.io/codecov/c/github/wooorm/mapz.svg
+[coverage-badge]: https://img.shields.io/codecov/c/github/wooorm/mapz.svg
 
-[codecov]: https://codecov.io/github/wooorm/mapz
+[coverage]: https://codecov.io/github/wooorm/mapz
+
+[downloads-badge]: https://img.shields.io/npm/dm/mapz.svg
+
+[downloads]: https://www.npmjs.com/package/mapz
+
+[size-badge]: https://img.shields.io/bundlephobia/minzip/mapz.svg
+
+[size]: https://bundlephobia.com/result?p=mapz
 
 [npm]: https://docs.npmjs.com/cli/install
 
