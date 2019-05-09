@@ -15,7 +15,7 @@ function factory(fn, options) {
     key = settings
   }
 
-  if (indices == null) {
+  if (indices === null || indices === undefined) {
     indices = true
   }
 
@@ -45,7 +45,7 @@ function factory(fn, options) {
         result = fn.call(this, values[index], parent)
       }
 
-      if (!gapless || result != null) {
+      if (!gapless || (result !== null && result !== undefined)) {
         results.push(result)
       }
     }

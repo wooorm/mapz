@@ -50,12 +50,6 @@
   "xo": {
     "prettier": true,
     "esnext": false,
-    "rules": {
-      "eqeqeq": "off",
-      "no-eq-null": "off",
-      "no-var": "off",
-      "prefer-arrow-callback": "off"
-    },
     "ignores": [
       "mapz.js"
     ]
