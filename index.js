@@ -4,7 +4,7 @@ var array = require('x-is-array')
 
 module.exports = factory
 
-/* Functional map with sugar. */
+// Functional map with sugar.
 function factory(fn, options) {
   var settings = options || {}
   var key = settings.key
