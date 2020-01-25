@@ -7,17 +7,17 @@
 
 Functional map with sugar.
 
-## Installation
+## Install
 
 [npm][]:
 
-```bash
+```sh
 npm install mapz
 ```
 
-## Usage
+## Use
 
-```javascript
+```js
 var mapz = require('mapz')
 
 var map = mapz(fn, {key: 'children', gapless: true})
@@ -33,32 +33,31 @@ function fn(value) {
 
 ### `mapz(fn[, options])`
 
-Functional map with sugar (functional, as values are provided as a
-parameter, instead of context object).
+Functional map with sugar (functional, as values are provided as a parameter,
+instead of context object).
 
-Wraps the supplied [`fn`][fn], which handles one value, so that it
-accepts multiple values, invoking `fn` for each and returning all
-results.
+Wraps the supplied [`fn`][fn], which handles one value, so that it accepts
+multiple values, invoking `fn` for each and returning all results.
 
 If `options` is a string, it’s treated as `{key: options}`.
 
 ###### `options.gapless`
 
-Whether to filter out `null` and `undefined` results `boolean`,
-default: `false`.
+Whether to filter out `null` and `undefined` results (`boolean`, default:
+`false`).
 
 ###### `options.indices`
 
-Whether to invoke `fn` with the index of the value in its context
-(`boolean`, default: `true`);
+Whether to invoke `fn` with the index of the value in its context (`boolean`,
+default: `true`);
 
 ###### `options.key`
 
-If a key (`string`, optional) is given, and an object supplied to the
-wrapped `fn`, values at that object’s `key` property are mapped and
-the object, instead of the values, is given to `fn` as a last
-parameter.  If a key is given and an array is passed to the wrapped
-`fn`, no value is given to `fn` as a last parameter.
+If a key (`string`, optional) is given, and an object supplied to the wrapped
+`fn`, values at that object’s `key` property are mapped and the object, instead
+of the values, is given to `fn` as a last parameter.
+If a key is given and an array is passed to the wrapped `fn`, no value is given
+to `fn` as a last parameter.
 
 ###### Returns
 
@@ -66,18 +65,20 @@ parameter.  If a key is given and an array is passed to the wrapped
 
 #### `map(values)`
 
-Invoke the bound [`fn`][fn] for all values.  If a `key` is bound,
-`values` can be an object.  See [`options.key`][key] for more info.
+Invoke the bound [`fn`][fn] for all values.  If a `key` is bound, `values` can
+be an object.
+See [`options.key`][key] for more info.
 
 ###### Returns
 
-`Array.<*>` — Values returned by `fn`.  If `gapless` is `true`, `null`
-or `undefined` results are not returned by `map`.
+`Array.<*>` — Values returned by `fn`.  If `gapless` is `true`, `null` or
+`undefined` results are not returned by `map`.
 
 #### `fn(value[, index], parent?)`
 
-Handle one value.  If `indices` is `false`, no index parameter is
-passed.  If `key` is set and an array is given, no `parent` is passed.
+Handle one value.
+If `indices` is `false`, no index parameter is passed.
+If `key` is set and an array is given, no `parent` is passed.
 
 ###### Returns
 
