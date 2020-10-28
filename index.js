@@ -7,25 +7,15 @@ module.exports = factory
 // Functional map with sugar.
 function factory(fn, options) {
   var settings = options || {}
-  var key = settings.key
-  var indices = settings.indices
-  var gapless = settings.gapless
-
-  if (typeof settings === 'string') {
-    key = settings
-  }
-
-  if (indices === null || indices === undefined) {
-    indices = true
-  }
+  var indices = settings.indices == null ? true : settings.indices
+  var key = typeof settings === 'string' ? settings : settings.key
 
   return all
 
   function all(values) {
     var results = []
-    var parent = values
     var index = -1
-    var length
+    var parent = values
     var result
 
     if (key) {
@@ -36,14 +26,12 @@ function factory(fn, options) {
       }
     }
 
-    length = values.length
-
-    while (++index < length) {
+    while (++index < values.length) {
       result = indices
         ? fn.call(this, values[index], index, parent)
         : fn.call(this, values[index], parent)
 
-      if (!gapless || (result !== null && result !== undefined)) {
+      if (!settings.gapless || result != null) {
         results.push(result)
       }
     }
