@@ -1,3 +1,5 @@
 coverage/
+*.json
+*.md
 mapz.js
 mapz.min.js

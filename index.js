@@ -39,11 +39,9 @@ function factory(fn, options) {
     length = values.length
 
     while (++index < length) {
-      if (indices) {
-        result = fn.call(this, values[index], index, parent)
-      } else {
-        result = fn.call(this, values[index], parent)
-      }
+      result = indices
+        ? fn.call(this, values[index], index, parent)
+        : fn.call(this, values[index], parent)
 
       if (!gapless || (result !== null && result !== undefined)) {
         results.push(result)

@@ -3,7 +3,7 @@
 var test = require('tape')
 var mapz = require('.')
 
-test('mapz(options?)', function(t) {
+test('mapz(options?)', function (t) {
   t.deepEqual(
     mapz(fn)([1, 2, 3]),
     [null, 'Hi, 2.', 'Hi, 3.'],
