@@ -1,7 +1,5 @@
 'use strict'
 
-var array = require('x-is-array')
-
 module.exports = factory
 
 // Functional map with sugar.
@@ -19,7 +17,7 @@ function factory(fn, options) {
     var result
 
     if (key) {
-      if (array(values)) {
+      if (Array.isArray(values)) {
         parent = null
       } else {
         values = parent[key]

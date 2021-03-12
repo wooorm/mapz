@@ -21,9 +21,6 @@
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)"
   ],
-  "dependencies": {
-    "x-is-array": "^0.1.0"
-  },
   "devDependencies": {
     "browserify": "^17.0.0",
     "nyc": "^15.0.0",
