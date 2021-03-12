@@ -95,9 +95,9 @@ If `key` is set and an array is given, no `parent` is passed.
 
 <!-- Definitions -->
 
-[build-badge]: https://img.shields.io/travis/wooorm/mapz.svg
+[build-badge]: https://github.com/wooorm/mapz/workflows/main/badge.svg
 
-[build]: https://travis-ci.org/wooorm/mapz
+[build]: https://github.com/wooorm/mapz/actions
 
 [coverage-badge]: https://img.shields.io/codecov/c/github/wooorm/mapz.svg
 
