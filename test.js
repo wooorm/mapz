@@ -1,7 +1,5 @@
-'use strict'
-
-var test = require('tape')
-var mapz = require('.')
+import test from 'tape'
+import {mapz} from './index.js'
 
 test('mapz(options?)', function (t) {
   t.deepEqual(

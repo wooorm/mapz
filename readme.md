@@ -9,6 +9,9 @@ Functional map with sugar.
 
 ## Install
 
+This package is ESM only: Node 12+ is needed to use it and it must be `import`ed
+instead of `require`d.
+
 [npm][]:
 
 ```sh
@@ -18,7 +21,7 @@ npm install mapz
 ## Use
 
 ```js
-var mapz = require('mapz')
+import {mapz} from 'mapz'
 
 var map = mapz(fn, {key: 'children', gapless: true})
 
@@ -30,6 +33,9 @@ function fn(value) {
 ```
 
 ## API
+
+This package exports the following identifiers: `mapz`.
+There is no default export.
 
 ### `mapz(fn[, options])`
 

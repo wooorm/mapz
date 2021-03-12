@@ -1,9 +1,5 @@
-'use strict'
-
-module.exports = factory
-
 // Functional map with sugar.
-function factory(fn, options) {
+export function mapz(fn, options) {
   var settings = options || {}
   var indices = settings.indices == null ? true : settings.indices
   var key = typeof settings === 'string' ? settings : settings.key
