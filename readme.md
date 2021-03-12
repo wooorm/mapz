@@ -43,7 +43,7 @@ Functional map with sugar (functional, as values are provided as a parameter,
 instead of context object).
 
 Wraps the supplied [`fn`][fn], which handles one value, so that it accepts
-multiple values, invoking `fn` for each and returning all results.
+multiple values, calling `fn` for each and returning all results.
 
 If `options` is a string, it’s treated as `{key: options}`.
 
@@ -54,13 +54,13 @@ Whether to filter out `null` and `undefined` results (`boolean`, default:
 
 ###### `options.indices`
 
-Whether to invoke `fn` with the index of the value in its context (`boolean`,
+Whether to call `fn` with the index of the value in its context (`boolean`,
 default: `true`);
 
 ###### `options.key`
 
 If a key (`string`, optional) is given, and an object supplied to the wrapped
-`fn`, values at that object’s `key` property are mapped and the object, instead
+`fn`, values at that object’s `key` field are mapped and the object, instead
 of the values, is given to `fn` as a last parameter.
 If a key is given and an array is passed to the wrapped `fn`, no value is given
 to `fn` as a last parameter.
@@ -71,7 +71,7 @@ to `fn` as a last parameter.
 
 #### `map(values)`
 
-Invoke the bound [`fn`][fn] for all values.  If a `key` is bound, `values` can
+Call the bound [`fn`][fn] for all values.  If a `key` is bound, `values` can
 be an object.
 See [`options.key`][key] for more info.
 
