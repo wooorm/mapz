@@ -1,7 +1,6 @@
 /**
  * @typedef Options
  * @property {boolean} [gapless=false] Whether to filter out `null` and `undefined` results
- * @property {boolean} [indices=true] Whether to call `fn` with the index of the value in its context
  * @property {string} [key] If a key is given, and an object supplied to the wrapped `fn`, values at that object’s `key` field are mapped and the object, instead of the values, is given to `fn` as a last parameter. If a key is given and an array is passed to the wrapped `fn`, no value is given to `fn` as a last parameter
  */
 
@@ -19,17 +18,12 @@
  */
 export function mapz(fn, options) {
   var gapless = false
-  var indices = true
   /** @type {string?} */
   var key
 
   if (typeof options === 'string') {
     key = options
   } else if (options) {
-    if (options.indices != null) {
-      indices = options.indices
-    }
-
     if (options.key != null) {
       key = options.key
     }
@@ -70,9 +64,7 @@ export function mapz(fn, options) {
 
     if ('length' in values && typeof values.length === 'number') {
       while (++index < values.length) {
-        result = indices
-          ? fn.call(this, values[index], index, parent)
-          : fn.call(this, values[index], parent)
+        result = fn.call(this, values[index], parent)
 
         if (gapless ? result != null : true) {
           results.push(result)

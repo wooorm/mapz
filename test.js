@@ -20,14 +20,6 @@ test('mapz(options?)', function (t) {
     'should ignore gaps in `gapless: true` mode'
   )
 
-  t.deepEqual(mapz(indices)([1, 2, 3]), [0, 1, 2], 'should pass indices')
-
-  t.deepEqual(
-    mapz(indices, {indices: false})([1, 2, 3]),
-    ['-', '-', '-'],
-    'should not pass indices in `indices: false` mode'
-  )
-
   t.deepEqual(mapz(parents)([1, 2, 3]), [3, 3, 3], 'should pass a parent')
 
   t.deepEqual(
@@ -55,11 +47,7 @@ test('mapz(options?)', function (t) {
     return value > 1 ? 'Hi, ' + value + '.' : null
   }
 
-  function indices(value, index) {
-    return typeof index === 'number' ? index : '-'
-  }
-
-  function parents(value, index, parent) {
+  function parents(value, parent) {
     return parent ? parent.length : '-'
   }
 

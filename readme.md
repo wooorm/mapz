@@ -52,11 +52,6 @@ If `options` is a string, it’s treated as `{key: options}`.
 Whether to filter out `null` and `undefined` results (`boolean`, default:
 `false`).
 
-###### `options.indices`
-
-Whether to call `fn` with the index of the value in its context (`boolean`,
-default: `true`);
-
 ###### `options.key`
 
 If a key (`string`, optional) is given, and an object supplied to the wrapped
@@ -80,10 +75,9 @@ See [`options.key`][key] for more info.
 `Array.<*>` — Values returned by `fn`.  If `gapless` is `true`, `null` or
 `undefined` results are not returned by `map`.
 
-#### `fn(value[, index], parent?)`
+#### `fn(value, parent?)`
 
 Handle one value.
-If `indices` is `false`, no index parameter is passed.
 If `key` is set and an array is given, no `parent` is passed.
 
 ###### Returns
@@ -127,4 +121,4 @@ If `key` is set and an array is given, no `parent` is passed.
 
 [key]: #optionskey
 
-[fn]: #fnvalue-index-parent
+[fn]: #fnvalue-parent
