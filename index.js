@@ -13,7 +13,9 @@
  *
  * If `options` is a string, it’s treated as `{key: options}`.
  *
- * @param {Function} fn
+ * @template {unknown} Value
+ * @template {Value[]} Values
+ * @param {(value: Value, parent: Values|Value?) => unknown} fn
  * @param {string|Options} [options]
  */
 export function mapz(fn, options) {
@@ -36,13 +38,12 @@ export function mapz(fn, options) {
   return map
 
   /**
-   * Call the bound `fn` for all values.  If a `key` is bound, `values` can be
-   * an object.
+   * Call the bound `fn` for all values.
+   * If a `key` is bound, `values` can be an object.
    * See `key` for more info.
    *
-   * @template Item
    * @this {unknown}
-   * @param {Item[]|Item} values
+   * @param {Value|Values} values
    * @returns {unknown[]}
    */
   function map(values) {
@@ -62,7 +63,7 @@ export function mapz(fn, options) {
       }
     }
 
-    if ('length' in values && typeof values.length === 'number') {
+    if (Array.isArray(values)) {
       while (++index < values.length) {
         result = fn.call(this, values[index], parent)
 

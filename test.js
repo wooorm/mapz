@@ -43,10 +43,19 @@ test('mapz(options?)', function (t) {
     'should pass a parent if a `key` is given and an object passed'
   )
 
+  /**
+   * @param {number} value
+   * @returns {string?}
+   */
   function fn(value) {
     return value > 1 ? 'Hi, ' + value + '.' : null
   }
 
+  /**
+   * @param {unknown} value
+   * @param {unknown[]?} parent
+   * @returns {number|string}
+   */
   function parents(value, parent) {
     return parent ? parent.length : '-'
   }
