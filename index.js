@@ -1,10 +1,15 @@
 /**
  * @template {boolean} [Gapless=false]
  * @typedef Options
+ *   Configuration (optional).
  * @property {Gapless|undefined} [gapless=false]
  *   Whether to filter out `null` and `undefined` results
  * @property {string|undefined} [key]
- *   If a key is given, and an object supplied to the wrapped `fn`, values at that object’s `key` field are mapped and the object, instead of the values, is given to `fn` as a last parameter. If a key is given and an array is passed to the wrapped `fn`, no value is given to `fn` as a last parameter
+ *   If a key is given, and an object supplied to the wrapped `fn`, values at
+ *   that object’s `key` field are mapped and the object, instead of the
+ *   values, is given to `fn` as a last parameter.
+ *   If a key is given and an array is passed to the wrapped `fn`, no value is
+ *   given to `fn` as a last parameter.
  */
 
 /**
@@ -50,6 +55,7 @@ export function mapz(fn, options) {
    * @this {unknown}
    * @param {Array<ChildValue>|ParentValue} values
    * @returns {Array<Gapless extends true ? NonNullable<ReturnValue> : ReturnValue>}
+   *   Values returned by `fn`.
    */
   function map(values) {
     /** @type {Array<Gapless extends true ? NonNullable<ReturnValue> : ReturnValue>} */
