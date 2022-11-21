@@ -1,7 +1,10 @@
 /**
+ * @template {boolean} [Gapless=false]
  * @typedef Options
- * @property {boolean} [gapless=false] Whether to filter out `null` and `undefined` results
- * @property {string} [key] If a key is given, and an object supplied to the wrapped `fn`, values at that object’s `key` field are mapped and the object, instead of the values, is given to `fn` as a last parameter. If a key is given and an array is passed to the wrapped `fn`, no value is given to `fn` as a last parameter
+ * @property {Gapless|undefined} [gapless=false]
+ *   Whether to filter out `null` and `undefined` results
+ * @property {string|undefined} [key]
+ *   If a key is given, and an object supplied to the wrapped `fn`, values at that object’s `key` field are mapped and the object, instead of the values, is given to `fn` as a last parameter. If a key is given and an array is passed to the wrapped `fn`, no value is given to `fn` as a last parameter
  */
 
 /**
@@ -13,14 +16,16 @@
  *
  * If `options` is a string, it’s treated as `{key: options}`.
  *
- * @template {unknown} Value
- * @template {Value[]} Values
- * @param {(value: Value, parent: Values|Value?) => unknown} fn
- * @param {string|Options} [options]
+ * @template {unknown} [ChildValue=unknown]
+ * @template {unknown} [ParentValue=unknown]
+ * @template {unknown} [ReturnValue=unknown]
+ * @template {boolean} [Gapless=false]
+ * @param {(value: ChildValue, parent: ParentValue) => ReturnValue} fn
+ * @param {string|Options<Gapless>|undefined} [options]
  */
 export function mapz(fn, options) {
   let gapless = false
-  /** @type {string?} */
+  /** @type {string|undefined} */
   let key
 
   if (typeof options === 'string') {
@@ -43,29 +48,35 @@ export function mapz(fn, options) {
    * See `key` for more info.
    *
    * @this {unknown}
-   * @param {Value|Values} values
-   * @returns {unknown[]}
+   * @param {Array<ChildValue>|ParentValue} values
+   * @returns {Array<Gapless extends true ? NonNullable<ReturnValue> : ReturnValue>}
    */
   function map(values) {
-    /** @type {unknown[]} */
+    /** @type {Array<Gapless extends true ? NonNullable<ReturnValue> : ReturnValue>} */
     const results = []
     let index = -1
-    const list = Array.isArray(values)
-    let parent = values
+    /** @type {Array<ChildValue>|ParentValue|null} */
+    let parent
 
     if (key) {
-      if (list) {
+      if (Array.isArray(values)) {
         parent = null
       } else {
+        parent = values
+        // @ts-expect-error: assume indexable.
         values = values[key]
       }
+    } else {
+      parent = values
     }
 
     if (Array.isArray(values)) {
       while (++index < values.length) {
+        // @ts-expect-error: assume `parent` matches.
         const result = fn.call(this, values[index], parent)
 
         if (gapless ? result !== undefined && result !== null : true) {
+          // @ts-expect-error: `gapless` check is correct.
           results.push(result)
         }
       }

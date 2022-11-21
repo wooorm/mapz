@@ -20,44 +20,59 @@ test('mapz(options?)', function (t) {
     'should ignore gaps in `gapless: true` mode'
   )
 
-  t.deepEqual(mapz(parents)([1, 2, 3]), [3, 3, 3], 'should pass a parent')
+  t.deepEqual(mapz(parentsList)([1, 2, 3]), [3, 3, 3], 'should pass a parent')
 
   t.deepEqual(
-    mapz(parents, {key: 'foo'})([1, 2, 3]),
-    ['-', '-', '-'],
+    mapz(parentsList, {key: 'foo'})([1, 2, 3]),
+    [0, 0, 0],
     'should not pass a parent if a `key` is given and an array passed'
   )
 
   t.deepEqual(
-    mapz(parents, 'foo')([1, 2, 3]),
-    ['-', '-', '-'],
+    mapz(parentsList, 'foo')([1, 2, 3]),
+    [0, 0, 0],
     'should support a key instead of `options`'
   )
 
   t.deepEqual(
-    mapz(parents, {key: 'foo'})({
+    mapz(parentsObject, {key: 'foo'})({
       foo: [1, 2, 3],
-      length: 5
+      value: 'x'
     }),
-    [5, 5, 5],
+    ['x', 'x', 'x'],
     'should pass a parent if a `key` is given and an object passed'
   )
 
   /**
    * @param {number} value
-   * @returns {string?}
+   * @returns {string|null}
    */
   function fn(value) {
     return value > 1 ? 'Hi, ' + value + '.' : null
   }
 
   /**
-   * @param {unknown} value
-   * @param {unknown[]?} parent
-   * @returns {number|string}
+   * @param {number} value
+   * @param {Array<number>|null} parent
+   * @returns {number}
    */
-  function parents(value, parent) {
-    return parent ? parent.length : '-'
+  function parentsList(value, parent) {
+    return parent ? parent.length : 0
+  }
+
+  /**
+   * @typedef Parent
+   * @property {Array<number>} foo
+   * @property {string} value
+   */
+
+  /**
+   * @param {number} value
+   * @param {Parent|null} parent
+   * @returns {string}
+   */
+  function parentsObject(value, parent) {
+    return parent ? parent.value : 'y'
   }
 
   t.end()
