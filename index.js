@@ -19,18 +19,18 @@
  * @param {string|Options} [options]
  */
 export function mapz(fn, options) {
-  var gapless = false
+  let gapless = false
   /** @type {string?} */
-  var key
+  let key
 
   if (typeof options === 'string') {
     key = options
   } else if (options) {
-    if (options.key != null) {
+    if (options.key !== undefined && options.key !== null) {
       key = options.key
     }
 
-    if (options.gapless != null) {
+    if (options.gapless !== undefined && options.gapless !== null) {
       gapless = options.gapless
     }
   }
@@ -48,12 +48,10 @@ export function mapz(fn, options) {
    */
   function map(values) {
     /** @type {unknown[]} */
-    var results = []
-    var index = -1
-    var list = Array.isArray(values)
-    var parent = values
-    /** @type {unknown} */
-    var result
+    const results = []
+    let index = -1
+    const list = Array.isArray(values)
+    let parent = values
 
     if (key) {
       if (list) {
@@ -65,9 +63,9 @@ export function mapz(fn, options) {
 
     if (Array.isArray(values)) {
       while (++index < values.length) {
-        result = fn.call(this, values[index], parent)
+        const result = fn.call(this, values[index], parent)
 
-        if (gapless ? result != null : true) {
+        if (gapless ? result !== undefined && result !== null : true) {
           results.push(result)
         }
       }
